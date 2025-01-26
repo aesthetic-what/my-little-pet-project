@@ -1,0 +1,9 @@
+@import "tailwindcss";
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  background-color:oklch(0.257 0.09 281.288)
+}
+
+/* // oklch(0.282 0.091 267.935) */
