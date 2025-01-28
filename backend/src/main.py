@@ -4,6 +4,7 @@ from src.backend.db import Base, engine
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 Base.metadata.create_all(bind=engine)
 
@@ -38,3 +39,7 @@ app.add_middleware(
 @app.get("/")
 async def main():
     return {"message": "Hello World"}
+
+
+if __name__ == '__main__':
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -49,3 +49,20 @@ async def update_price(db: Annotated[Session, Depends(get_db)],
     db.commit()
     return {'status_code': status.HTTP_202_ACCEPTED,
             'transaction': 'price updated successful'}
+    
+    
+@router.post('/create_100_products')
+async def create_products_100(db: Annotated[Session, Depends(get_db)]):
+    
+    for i in range(101):
+        db.execute(insert(Catalog).values(
+            name= f"PROD_{i}",
+            count=100,
+            price=100,
+            description=f"PROD_{i}",
+            order="SIGMA52",
+            added_at=datetime.now()
+        ))
+    db.commit()
+    return {"status_code": status.HTTP_201_CREATED,
+            "transaction": "successfuly created 100 products"}
